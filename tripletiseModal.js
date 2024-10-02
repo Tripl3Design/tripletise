@@ -12,7 +12,7 @@ function injectModalHTML() {
                             </div>
                         ` : `
                             <div class="position-absolute top-0 end-0">
-                                <button type="button" style="color: #000; font-size: 40px;" class="btn btn-link text-decoration-none m-0 p-0 me-4 mt-4" data-bs-dismiss="modal" aria-label="close">
+                                <button type="button" style="color: #fff; font-size: 40px;" class="btn btn-link text-decoration-none m-0 p-0 me-4 mt-4" data-bs-dismiss="modal" aria-label="close">
                                     <i class="bi-x"></i>
                                 </button>
                             </div>
