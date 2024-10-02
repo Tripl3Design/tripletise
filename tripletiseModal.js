@@ -2,7 +2,7 @@ function injectModalHTML() {
     const modalHTML = `
         <div class="modal fade" id="tripledesign-modal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-fullscreen p-0 p-md-3 m-0">
-                <div class="modal-content bg-white shadow">
+                <div class="modal-content bg-white shadow" style="style="background-color: white;">
                     <div class="modal-body m-0 p-0 overflow-hidden">
                         ${/iPhone|Android/i.test(navigator.userAgent) ? `
                             <div class="position-absolute top-0 start-0">
