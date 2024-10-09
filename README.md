@@ -1,11 +1,18 @@
 # TripleTise CPQ Configurator Integration
 
-With this integration, you can easily add the **Tripletise CPQ configurator** to your website and adjust the configuration based on your preferences and region. Follow the instructions below to integrate and customize the system according to your needs.
+## What is the TripleTise Configurator?
+The **TripleTise configurator** is a custom-built real-time 3D WebGL tool that allows for countless product variations based on CPQ (Configure Price Quote). Easily link the configurator to your webshop, enabling your customers to explore all the available options and proceed to purchase.
+
+With the TripleTise configurator, customers can zoom, rotate, and view products in high quality on desktop, tablet, and mobile devices. They can experiment with all available variants, colors, and materials in a seamless experience.
+
+**CPQ software** (Configure, Price, Quote) helps businesses sell complex products and services more easily. It automates the process of configuring products, generating accurate prices, and creating quotes, leading to a more efficient sales process and precise offers.
+By using CPQ software, you enhance the customer experience, increase quote accuracy, and save valuable time in the sales process. It's ideal for businesses in industries such as manufacturing, technology, and services where customization and complex pricing structures play a significant role.
 
 ## Installation
+With this integration, you can easily add the **TripleTise CPQ configurator** to your website and adjust the configuration based on your preferences and region. Follow the instructions below to integrate and customize the system according to your needs.
 
 1. **Ensure your domain is registered.**
-   The configurator can only be added if the domain of the website where it is implemented has been registered in the configurator settings. Please make sure that your domain is added to the allowed list in the Tripletise settings before proceeding. If you’re unsure or need assistance, visit tripledesign.nl to get help with domain registration.
+   The configurator can only be added if the domain of the website where it is implemented has been registered in the configurator settings. Please make sure that your domain is added to the allowed list in the TripleTise settings before proceeding. If you’re unsure or need assistance, visit [tripledesign.nl](https://tripledesign.nl) to get help.
 3. **Add the configurator to your website.**
    Insert the script tag below into the page where you want the configurator to appear. Place it just before the closing `</body>`-tag.
 
@@ -33,5 +40,5 @@ With this integration, you can easily add the **Tripletise CPQ configurator** to
     - **Parameter order:** the order in which you place the parameters does not matter. As long as they are separated by an `&`, they will work correctly.
     - **Default settings:** some parameters are enabled or disabled by default for mobile devices.
   
-5. **Congratulations!** You’ve successfully integrated the Tripletise CPQ configurator into your website. Your users can now enjoy a seamless configuration experience tailored to your brand and region. Feel free to further customize the parameters as needed.
+5. **Congratulations!** You’ve successfully integrated the TripleTise CPQ configurator into your website. Your users can now enjoy a seamless configuration experience tailored to your brand and region. Feel free to further customize the parameters as needed.
    You can even add multiple versions of the same configurator with different settings on various parts of your website. If you have any questions, we're always here to help. You've taken a great step toward improving your website's user experience!
