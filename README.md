@@ -33,5 +33,5 @@ With this integration, you can easily add the **Tripletise CPQ configurator** to
     - **Parameter order:** the order in which you place the parameters does not matter. As long as they are separated by an `&`, they will work correctly.
     - **Default settings:** some parameters are enabled or disabled by default for mobile devices.
   
-5. **Congratulations!** You’ve successfully integrated the Tripletise CPQ configurator into your website. Your users can now enjoy a seamless configuration experience tailored to your brand and region.Feel free to further customize the parameters as needed.
+5. **Congratulations!** You’ve successfully integrated the Tripletise CPQ configurator into your website. Your users can now enjoy a seamless configuration experience tailored to your brand and region. Feel free to further customize the parameters as needed.
    You can even add multiple versions of the same configurator with different settings on various parts of your website. If you have any questions, we're always here to help. You've taken a great step toward improving your website's user experience!
