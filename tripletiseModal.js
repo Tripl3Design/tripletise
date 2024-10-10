@@ -1,6 +1,7 @@
+
 function injectModalHTML() {
     const modalHTML = `
-        <div class="modal fade" id="tripledesign-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal fade" id="tripletise-modal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-fullscreen p-0 p-md-3 m-0">
                 <div class="modal-content bg-white shadow">
                     <div class="modal-body m-0 p-0 overflow-hidden">
@@ -31,16 +32,19 @@ function injectModalHTML() {
 if (typeof bootstrap === 'undefined') {
     // Dynamically load Bootstrap CSS
     var link = document.createElement('link');
-    link.href = 'https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css';
+    link.href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css';
     link.rel = 'stylesheet';
     document.head.appendChild(link);
 
     // Dynamically load Bootstrap JS
     var script = document.createElement('script');
-    script.src = 'https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js';
+                  
+    script.src = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js';
+    script.integrity = 'sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz';
+    script.crossOrigin = 'anonymous';
     script.onload = function() {
         injectModalHTML();
-        initializeTripleModal(); // Initialize modal after Bootstrap and HTML are loaded
+        initializeTripleModal();
     };
     document.body.appendChild(script);
 } else {
@@ -53,7 +57,7 @@ if (typeof bootstrap === 'undefined') {
 function initializeTripleModal() {
     window.tripletiseModal = function(srcUrl) { // Make function globally accessible
         document.getElementById("iframe-src").src = 'https://' + srcUrl;
-        var tripletiseModal = new bootstrap.Modal(document.getElementById('tripledesign-modal'), {
+        var tripletiseModal = new bootstrap.Modal(document.getElementById('tripletise-modal'), {
             backdrop: false,
             keyboard: false,
             focus: true
