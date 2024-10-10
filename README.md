@@ -22,10 +22,10 @@ With this integration, you can easily add the **TripleTise CPQ configurator** to
 
 4. **Add the configurator link.**
    Use the `tripletiseModal()` function to call the configurator. The function accepts parameters that can be customized according to your preferences. The link should be added to the page where the configurator needs to be activated, for example on a button or image.
-   When implementing the configurator, you can use various parameters to adjust the behavior and content. These parameters are added after `brandname.productname.web.app`, preceded by a question mark (`?`), and joined by an ampersand (`&`).
+   When implementing the configurator, you can use various parameters to adjust the behavior and content. These parameters are added after `brandname-productname.web.app`, preceded by a question mark (`?`), and joined by an ampersand (`&`).
   
      ```javascript
-    tripletiseModal('brandname.productname.web.app?id=2&lang=en&region=nl&prices');
+    tripletiseModal('brandname-productname.web.app?id=2&lang=en&region=nl&prices');
     ```
     Below are some common parameters. For additional configuration parameters, visit [tripledesign.nl](https://tripledesign.nl).
 
