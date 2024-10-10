@@ -25,7 +25,7 @@ With this integration, you can easily add the **TripleTise CPQ configurator** to
    When implementing the configurator, you can use various parameters to adjust the behavior and content. These parameters are added after `brandname.productname.web.app`, preceded by a question mark (`?`), and joined by an ampersand (`&`).
   
      ```javascript
-    tripletiseModal('merknaam.productnaam.web.app?id=2&lang=en&region=nl&prices');
+    tripletiseModal('brandname.productname.web.app?id=2&lang=en&region=nl&prices');
     ```
     Below are some common parameters. For additional configuration parameters, visit [tripledesign.nl](https://tripledesign.nl).
 
