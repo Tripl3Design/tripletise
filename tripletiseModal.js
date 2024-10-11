@@ -1,4 +1,3 @@
-
 function injectModalHTML() {
     const modalHTML = `
         <div class="modal fade" id="tripletise-modal" tabindex="-1" aria-hidden="true">
