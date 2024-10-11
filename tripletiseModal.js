@@ -18,7 +18,9 @@ function injectModalHTML() {
                                 </button>
                             </div>
                         `}
-                        <iframe id="iframe-src" src="" height="100%" width="100%" title="TripleDesign"></iframe>
+                        <iframe id="iframe-src" src="" height="100%" width="100%" title="TripleDesign"
+                            allow="camera; accelerometer; gyroscope; xr-spatial-tracking; fullscreen">
+                        </iframe>
                     </div>
                 </div>
             </div>
