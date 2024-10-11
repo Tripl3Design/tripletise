@@ -65,10 +65,10 @@ function initializeTripleModal() {
     };
 
     // Auto open modal if URL parameters are provided
-    const urlParams = new URLSearchParams(window.location.search);
-    const brand = urlParams.get('brand');
-    const product = urlParams.get('product');
-    const data = urlParams.get('data');
+    const urlParamsTripleTise = new URLSearchParams(window.location.search);
+    const brand = urlParamsTripleTise.get('brand');
+    const product = urlParamsTripleTise.get('product');
+    const data = urlParamsTripleTise.get('data');
     if (brand != undefined && product != undefined) {
         tripletiseModal(`${brand}-${product}.web.app?data=${data}`);
     }
