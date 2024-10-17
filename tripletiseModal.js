@@ -119,13 +119,27 @@ function initializeTripleModal() {
     };
 
     // Automatically open modal if URL parameters are present
-    const urlParams = new URLSearchParams(window.location.search);
-    const brand = urlParams.get('brand');
-    const product = urlParams.get('product');
-    const data = urlParams.get('data');
-    if (brand && product) {
-        tripletiseModal(`${brand}-${product}.web.app?data=${data}`);
+const urlParams = new URLSearchParams(window.location.search);
+const brand = urlParams.get('brand');
+const product = urlParams.get('product');
+const id = urlParams.get('id');
+const fsid = urlParams.get('fsid');  
+const data = urlParams.get('data');
+
+if (brand && product) {
+    let modalUrl = `${brand}-${product}.web.app`;  // Base URL for the iframe
+
+    // Prioritize fsid over data and id, then check for id or data
+    if (fsid) {
+        modalUrl += `?fsid=${fsid}`;
+    } else if (id) {
+        modalUrl += `?id=${id}`;
+    } else if (data) {
+        modalUrl += `?data=${data}`;
     }
+
+    // Open the modal with the constructed URL
+    tripletiseModal(modalUrl);
 }
 
 // Initialize modal and listen for resize events
