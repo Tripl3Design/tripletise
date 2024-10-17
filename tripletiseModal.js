@@ -18,20 +18,17 @@ function injectModalHTML() {
             </div>
         </div>
         <style>
-            /* Prevent body scrolling when modal is open */
             body.modal-open {
-                overflow: hidden; /* Prevent scrolling */
+                overflow: hidden;
             }
-
             .modal {
                 position: fixed;
-                z-index: 9999; /* High z-index to overlay other elements */
+                z-index: 9999;
                 left: 0;
                 top: 0;
                 width: 100%;
                 height: 100%;
-                overflow: hidden; /* Prevent scrolling */
-                background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+                background-color: rgba(0, 0, 0, 0.7);
             }
             .modal-content {
                 position: absolute;
@@ -40,94 +37,100 @@ function injectModalHTML() {
                 width: 100%;
                 height: 100%;
                 background-color: white;
-                overflow: hidden;
                 display: flex;
                 flex-direction: column;
-                margin: 0; /* Default no margin */
-                border-radius: 0; /* No rounded corners */
             }
             .modal-body {
-                flex-grow: 1; /* Allow the body to fill available space */
-                margin: 0;
-                padding: 0;
-                position: relative; /* Position relative for close button */
+                flex-grow: 1;
+                position: relative;
             }
         </style>
     `;
 
-    // Append modal HTML to the body
     document.body.insertAdjacentHTML('beforeend', modalHTML);
 }
 
-// Function to adjust modal margins and chevron visibility based on screen dimensions
 function adjustModalMargins() {
     const modalContent = document.querySelector('.modal-content');
     const chevronLeft = document.getElementById('chevron-left');
     const closeBtn = document.querySelector('.close-btn');
 
     if (window.innerHeight > window.innerWidth) {
-        // Screen is taller than it is wide (no margin, show chevron)
         modalContent.style.margin = '0';
-        modalContent.style.width = '100%';  // Ensure it takes full width
-        modalContent.style.height = '100%'; // Ensure it takes full height
-        chevronLeft.style.display = 'block'; // Show chevron
-        closeBtn.style.display = 'none'; // Hide close button
+        modalContent.style.width = '100%';
+        modalContent.style.height = '100%';
+        chevronLeft.style.display = 'block';
+        closeBtn.style.display = 'none';
     } else {
-        // Screen is wider than it is tall (apply margin, hide chevron)
-        modalContent.style.margin = '20px'; // Margin around modal
-        modalContent.style.width = 'calc(100% - 40px)'; // Adjust width for margins
-        modalContent.style.height = 'calc(100% - 40px)'; // Adjust height for margins
-        chevronLeft.style.display = 'none'; // Hide chevron
-        closeBtn.style.display = 'block'; // Show close button
+        modalContent.style.margin = '20px';
+        modalContent.style.width = 'calc(100% - 40px)';
+        modalContent.style.height = 'calc(100% - 40px)';
+        chevronLeft.style.display = 'none';
+        closeBtn.style.display = 'block';
     }
 }
 
-// Initialize modal functionality
+// PostMessage function to send data to iframe
+function sendMessageToIframe(srcUrl) {
+    const iframe = document.getElementById("iframe-src");
+    iframe.src = `https://${srcUrl}`;
+
+    // Construct message object (you can add more parameters as needed)
+    const message = {
+        brand: new URLSearchParams(window.location.search).get('brand'),
+        product: new URLSearchParams(window.location.search).get('product'),
+        data: new URLSearchParams(window.location.search).get('data')
+    };
+
+    // Wait for iframe to load before sending the message
+    iframe.onload = () => {
+        iframe.contentWindow.postMessage(message, `https://${srcUrl}`);
+    };
+}
+
 function initializeTripleModal() {
     window.tripletiseModal = function(srcUrl) {
         const modal = document.getElementById("tripletise-modal");
-        document.getElementById("iframe-src").src = 'https://' + srcUrl;
-
         modal.style.display = "block";
-        document.body.classList.add('modal-open'); // Prevent body scroll
-        adjustModalMargins(); // Adjust margins based on screen size
+        document.body.classList.add('modal-open');
+        adjustModalMargins();
 
-        // Close the modal when the close button is clicked
-        document.querySelector('.close-btn').onclick = function() {
+        sendMessageToIframe(srcUrl);
+
+        // Close button functionality
+        document.querySelector('.close-btn').onclick = () => {
             modal.style.display = "none";
-            document.body.classList.remove('modal-open'); // Re-enable body scroll
+            document.body.classList.remove('modal-open');
         };
 
-        // Close the modal when clicking outside of the modal content
-        window.onclick = function(event) {
+        // Close modal when clicking outside the content
+        window.onclick = (event) => {
             if (event.target === modal) {
                 modal.style.display = "none";
-                document.body.classList.remove('modal-open'); // Re-enable body scroll
+                document.body.classList.remove('modal-open');
             }
         };
 
-        // Close modal when chevron is clicked
-        document.getElementById('chevron-left').onclick = function() {
+        // Chevron close
+        document.getElementById('chevron-left').onclick = () => {
             modal.style.display = "none";
-            document.body.classList.remove('modal-open'); // Re-enable body scroll
+            document.body.classList.remove('modal-open');
         };
     };
 
-    // Auto open modal if URL parameters are provided
-    const urlParamsTripleTise = new URLSearchParams(window.location.search);
-    const brand = urlParamsTripleTise.get('brand');
-    const product = urlParamsTripleTise.get('product');
-    const data = urlParamsTripleTise.get('data');
-    if (brand !== null && product !== null) {
+    // Automatically open modal if URL parameters are present
+    const urlParams = new URLSearchParams(window.location.search);
+    const brand = urlParams.get('brand');
+    const product = urlParams.get('product');
+    const data = urlParams.get('data');
+    if (brand && product) {
         tripletiseModal(`${brand}-${product}.web.app?data=${data}`);
     }
 }
 
-// Check if modal is already loaded
+// Initialize modal and listen for resize events
 if (!document.getElementById("tripletise-modal")) {
     injectModalHTML();
     initializeTripleModal();
+    window.addEventListener('resize', adjustModalMargins);
 }
-
-// Listen for window resize events to adjust modal margins dynamically
-window.addEventListener('resize', adjustModalMargins);
