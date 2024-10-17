@@ -28,7 +28,7 @@ function injectModalHTML() {
                 top: 0;
                 width: 100%;
                 height: 100%;
-                 overflow: hidden; /* Prevent scrolling */
+                overflow: hidden; /* Prevent scrolling */
                 background-color: rgba(0, 0, 0, 0.7);
             }
             .modal-content {
