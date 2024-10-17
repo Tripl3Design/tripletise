@@ -28,6 +28,7 @@ function injectModalHTML() {
                 top: 0;
                 width: 100%;
                 height: 100%;
+                 overflow: hidden; /* Prevent scrolling */
                 background-color: rgba(0, 0, 0, 0.7);
             }
             .modal-content {
@@ -37,8 +38,11 @@ function injectModalHTML() {
                 width: 100%;
                 height: 100%;
                 background-color: white;
+                overflow: hidden;
                 display: flex;
                 flex-direction: column;
+                margin: 0; /* Default no margin */
+                border-radius: 0; /* No rounded corners */
             }
             .modal-body {
                 flex-grow: 1;
