@@ -89,7 +89,7 @@ function sendMessageToIframe(srcUrl) {
 }
 
 function initializeTripleModal() {
-    window.tripletiseModal = function(srcUrl) {
+    window.tripletiseModal = function (srcUrl) {
         const modal = document.getElementById("tripletise-modal");
         modal.style.display = "block";
         document.body.classList.add('modal-open');
@@ -119,27 +119,28 @@ function initializeTripleModal() {
     };
 
     // Automatically open modal if URL parameters are present
-const urlParams = new URLSearchParams(window.location.search);
-const brand = urlParams.get('brand');
-const product = urlParams.get('product');
-const id = urlParams.get('id');
-const fsid = urlParams.get('fsid');  
-const data = urlParams.get('data');
+    const urlParams = new URLSearchParams(window.location.search);
+    const brand = urlParams.get('brand');
+    const product = urlParams.get('product');
+    const id = urlParams.get('id');
+    const fsid = urlParams.get('fsid');
+    const data = urlParams.get('data');
 
-if (brand && product) {
-    let modalUrl = `${brand}-${product}.web.app`;  // Base URL for the iframe
+    if (brand && product) {
+        let modalUrl = `${brand}-${product}.web.app`;  // Base URL for the iframe
 
-    // Prioritize fsid over data and id, then check for id or data
-    if (fsid) {
-        modalUrl += `?fsid=${fsid}`;
-    } else if (id) {
-        modalUrl += `?id=${id}`;
-    } else if (data) {
-        modalUrl += `?data=${data}`;
+        // Prioritize fsid over data and id, then check for id or data
+        if (fsid) {
+            modalUrl += `?fsid=${fsid}`;
+        } else if (id) {
+            modalUrl += `?id=${id}`;
+        } else if (data) {
+            modalUrl += `?data=${data}`;
+        }
+
+        // Open the modal with the constructed URL
+        tripletiseModal(modalUrl);
     }
-
-    // Open the modal with the constructed URL
-    tripletiseModal(modalUrl);
 }
 
 // Initialize modal and listen for resize events
