@@ -30,6 +30,7 @@ function injectModalHTML() {
                 height: 100%;
                 overflow: hidden; /* Prevent scrolling */
                 background-color: rgba(0, 0, 0, 0.7);
+                margin: 0; /* Default no margin */
             }
             .modal-content {
                 position: absolute;
