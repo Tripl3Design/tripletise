@@ -27,7 +27,7 @@ With this integration, you can easily add the **TripleTise CPQ configurator** to
      ```javascript
     tripletiseModal('brandname-productname.web.app?id=2&lang=en&region=nl&prices');
     ```
-    Below are some common parameters. For additional configuration parameters, visit [tripledesign.nl](https://tripledesign.nl).
+    Below are some example parameters. These are not always available in every configurator. For additional configuration parameters, visit [tripledesign.nl](https://tripledesign.nl).
 
     | Parameter       | Description                                                                   | Values                         |
     |-----------------|-------------------------------------------------------------------------------|--------------------------------|
@@ -42,3 +42,6 @@ With this integration, you can easily add the **TripleTise CPQ configurator** to
   
 5. **Congratulations!** You’ve successfully integrated the TripleTise CPQ configurator into your website. Your users can now enjoy a seamless configuration experience tailored to your brand and region. Feel free to further customize the parameters as needed.
    You can even add multiple versions of the same configurator with different settings on various parts of your website. If you have any questions, we're always here to help. You've taken a great step toward improving your website's user experience!
+
+   **Important Warning**
+Please note: Following this integration guide carefully is essential for the successful implementation of the TripleTise CPQ configurator on your website. If these instructions are not adhered to, any resulting errors, bugs, or issues that may arise will not be the responsibility of TripleDesign. We recommend that you thoroughly test the configurator after implementation to ensure it functions as expected. For assistance or if you encounter any problems, please reach out to our support team.
