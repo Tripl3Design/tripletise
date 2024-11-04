@@ -30,7 +30,7 @@ function injectModalHTML() {
                 height: 100%;
                 overflow: hidden; /* Prevent scrolling */
                 background-color: rgba(0, 0, 0, 0.7);
-                margin: 0; /* Default no margin */
+                margin: 0;
             }
             .modal-content {
                 position: absolute;
@@ -42,12 +42,13 @@ function injectModalHTML() {
                 overflow: hidden;
                 display: flex;
                 flex-direction: column;
-                margin: 0; /* Default no margin */
-                border-radius: 0; /* No rounded corners */
+                margin: 0;
+                border-radius: 0;
             }
             .modal-body {
                 flex-grow: 1;
                 position: relative;
+                padding: 0;
             }
         </style>
     `;
