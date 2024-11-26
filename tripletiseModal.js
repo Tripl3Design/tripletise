@@ -137,7 +137,7 @@ function initializeTripleModal() {
     const data = urlParams.get('data');
 
     if (brand && product) {
-        let modalUrl = `${brand}-${product}.web.app`;  // Base URL for the iframe
+        let modalUrl = `${brand}-${product}.web.app`;
 
         // Prioritize fsid over data and id
         if (fsid) {
