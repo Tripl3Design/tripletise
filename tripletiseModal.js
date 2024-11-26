@@ -82,16 +82,11 @@ function tripletiseModal(srcUrl) {
     const queryParams = new URLSearchParams(urlParts[1] || '');
     const newTabParam = queryParams.get('newtab');
 
-    console.log("newTabParam:", newTabParam); // Debugging
-    console.log("Orientation check:", window.innerWidth > window.innerHeight);
-
     // Check if we need to open in a new tab
     if (newTabParam !== null && window.innerWidth > window.innerHeight) {
-        // Construct the full URL with all the query parameters
-        const fullUrl = `https://${baseUrl}?${queryParams.toString()}`;
-        console.log("Opening in new tab:", fullUrl); // Debugging
-        window.open(fullUrl, '_blank');  // Open the link in a new tab with all query params
-        return;  // Stop further execution, no modal will be opened
+        const fullUrl = `${baseUrl}?${queryParams.toString()}`;
+        window.open(fullUrl, '_blank');
+        return;
     }
 
     // Ensure the modal exists in the DOM
@@ -109,14 +104,14 @@ function tripletiseModal(srcUrl) {
 
     // Open the modal
     if (modal.style.display === "block") {
-        return; // Modal is already open
+        return;
     }
 
     modal.style.display = "block";
     document.body.classList.add('tripletise-modal-open');
     adjustModalMargins();
 
-    iframe.src = `https://${baseUrl}?${queryParams.toString()}`;
+    iframe.src = `${baseUrl}?${queryParams.toString()}`;
 
     document.querySelector('.tripletise-close-btn').onclick = () => closeModal();
     window.onclick = (event) => {
@@ -129,7 +124,7 @@ function tripletiseModal(srcUrl) {
     function closeModal() {
         modal.style.display = "none";
         document.body.classList.remove('tripletise-modal-open');
-        window.onclick = null; // Clean up the event listener
+        window.onclick = null;
     }
 }
 
