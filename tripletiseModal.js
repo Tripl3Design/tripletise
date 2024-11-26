@@ -1,4 +1,3 @@
-    <script>
         function injectModalHTML() {
             const modalHTML = `
                 <div id="tripletise-modal" class="tripletise-modal" style="display: none;">
@@ -163,4 +162,3 @@ function tripletiseModal(srcUrl) {
             initializeTripleModal();
             window.addEventListener('resize', adjustModalMargins);
         }
-    </script>
