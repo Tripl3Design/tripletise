@@ -116,7 +116,7 @@
             document.body.classList.add('tripletise-modal-open');
             adjustModalMargins();
     
-            iframe.src = `https://${baseUrl}`;
+            iframe.src = `https://${baseUrl}?${queryParams.toString()}`;
     
             document.querySelector('.tripletise-close-btn').onclick = () => closeModal();
             window.onclick = (event) => {
