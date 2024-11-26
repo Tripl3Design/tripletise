@@ -1,5 +1,5 @@
-        function injectModalHTML() {
-            const modalHTML = `
+function injectModalHTML() {
+    const modalHTML = `
                 <div id="tripletise-modal" class="tripletise-modal" style="display: none;">
                     <div class="tripletise-modal-content">
                         <div class="tripletise-modal-body">
@@ -52,30 +52,30 @@
                     }
                 </style>
             `;
-            document.body.insertAdjacentHTML('beforeend', modalHTML);
-        }
-    
-        function adjustModalMargins() {
-            const modalContent = document.querySelector('.tripletise-modal-content');
-            const chevronLeft = document.getElementById('tripletise-chevron-left');
-            const closeBtn = document.querySelector('.tripletise-close-btn');
-    
-            // Adjust margins based on screen orientation
-            if (window.innerHeight > window.innerWidth) {
-                modalContent.style.margin = '0';
-                modalContent.style.width = '100%';
-                modalContent.style.height = '100%';
-                chevronLeft.style.display = 'block';
-                closeBtn.style.display = 'none';
-            } else {
-                modalContent.style.margin = '20px';
-                modalContent.style.width = 'calc(100% - 40px)';
-                modalContent.style.height = 'calc(100% - 40px)';
-                chevronLeft.style.display = 'none';
-                closeBtn.style.display = 'block';
-            }
-        }
-    
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+}
+
+function adjustModalMargins() {
+    const modalContent = document.querySelector('.tripletise-modal-content');
+    const chevronLeft = document.getElementById('tripletise-chevron-left');
+    const closeBtn = document.querySelector('.tripletise-close-btn');
+
+    // Adjust margins based on screen orientation
+    if (window.innerHeight > window.innerWidth) {
+        modalContent.style.margin = '0';
+        modalContent.style.width = '100%';
+        modalContent.style.height = '100%';
+        chevronLeft.style.display = 'block';
+        closeBtn.style.display = 'none';
+    } else {
+        modalContent.style.margin = '20px';
+        modalContent.style.width = 'calc(100% - 40px)';
+        modalContent.style.height = 'calc(100% - 40px)';
+        chevronLeft.style.display = 'none';
+        closeBtn.style.display = 'block';
+    }
+}
+
 function tripletiseModal(srcUrl) {
     const urlParts = srcUrl.split('?');
     const baseUrl = urlParts[0];
@@ -132,33 +132,33 @@ function tripletiseModal(srcUrl) {
         window.onclick = null; // Clean up the event listener
     }
 }
-    
-        function initializeTripleModal() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const brand = urlParams.get('brand');
-            const product = urlParams.get('product');
-            const id = urlParams.get('id');
-            const fsid = urlParams.get('fsid');
-            const data = urlParams.get('data');
-    
-            if (brand && product) {
-                let modalUrl = `${brand}-${product}.web.app`;  // Base URL for the iframe
-    
-                // Prioritize fsid over data and id
-                if (fsid) {
-                    modalUrl += `?fsid=${fsid}`;
-                } else if (id) {
-                    modalUrl += `?id=${id}`;
-                } else if (data) {
-                    modalUrl += `?data=${data}`;
-                }
-    
-                tripletiseModal(modalUrl);
-            }
+
+function initializeTripleModal() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const brand = urlParams.get('brand');
+    const product = urlParams.get('product');
+    const id = urlParams.get('id');
+    const fsid = urlParams.get('fsid');
+    const data = urlParams.get('data');
+
+    if (brand && product) {
+        let modalUrl = `${brand}-${product}.web.app`;  // Base URL for the iframe
+
+        // Prioritize fsid over data and id
+        if (fsid) {
+            modalUrl += `?fsid=${fsid}`;
+        } else if (id) {
+            modalUrl += `?id=${id}`;
+        } else if (data) {
+            modalUrl += `?data=${data}`;
         }
-    
-        if (!document.getElementById("tripletise-modal")) {
-            injectModalHTML();
-            initializeTripleModal();
-            window.addEventListener('resize', adjustModalMargins);
-        }
+
+        tripletiseModal(modalUrl);
+    }
+}
+
+if (!document.getElementById("tripletise-modal")) {
+    injectModalHTML();
+    initializeTripleModal();
+    window.addEventListener('resize', adjustModalMargins);
+}
