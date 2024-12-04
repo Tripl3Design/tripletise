@@ -34,10 +34,10 @@ Use one of the script tags below to add the configurator to your website. Place 
 ```html
 <html>
    <head>
-      <link href="https://cdn.jsdelivr.net/gh/Tripl3Design/tripletise@latest/tripletiseModalAndShop.css" rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/gh/Tripl3Design/tripletise@latest/tripletiseShop.css" rel="stylesheet">
    </head>
    <body>
-      <script src="https://cdn.jsdelivr.net/gh/Tripl3Design/tripletise@latest/tripletiseModalAndShop.js"></script>
+      <script src="https://cdn.jsdelivr.net/gh/Tripl3Design/tripletise@latest/tripletiseShop.js"></script>
    </body>
 </html>
 ```
