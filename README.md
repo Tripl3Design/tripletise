@@ -30,13 +30,14 @@ With this integration, you can easily add the **TripleTise CPQ configurator** to
 ```
 
 - **Configurator with basic webshop integration** — no external webshop required! The configurator comes with a simple webshop and integrates directly with [mollie](https://www.mollie.com/nl) for payments.
-Use one of the script tags below to add the configurator to your website. Place it just before the closing `</body>` tag.
 ```html
 <html>
    <head>
+      <link href="https://cdn.jsdelivr.net/gh/Tripl3Design/tripletise@latest/tripletiseModal.css" rel="stylesheet">
       <link href="https://cdn.jsdelivr.net/gh/Tripl3Design/tripletise@latest/tripletiseShop.css" rel="stylesheet">
    </head>
    <body>
+      <script src="https://cdn.jsdelivr.net/gh/Tripl3Design/tripletise@latest/tripletiseModal.js"></script>
       <script src="https://cdn.jsdelivr.net/gh/Tripl3Design/tripletise@latest/tripletiseShop.js"></script>
    </body>
 </html>
