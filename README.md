@@ -1,6 +1,5 @@
-# TripleTise CPQ Configurator Integration
+# TripleTise CPQ Configurator installation
 
-## What is the TripleTise Configurator?
 The **TripleTise configurator** is a custom-built real-time 3D WebGL tool that allows for countless product variations based on CPQ (Configure Price Quote). Easily link the configurator to your webshop, enabling your customers to explore all the available options and proceed to purchase.
 
 With the TripleTise configurator, customers can zoom, rotate, and view products in high quality on desktop, tablet, and mobile devices. They can experiment with all available variants, colors, and materials in a seamless experience.
