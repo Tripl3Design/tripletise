@@ -52,7 +52,7 @@ Below are some example parameters. These are not always available in every confi
 
 | Parameter       | Description                                                                   | Values                         |
 |-----------------|-------------------------------------------------------------------------------|--------------------------------|
-| `id`            | The preset image used as the starting point.                                  | A number (e.g., `1`, `2`)      |
+| `id`            | The preset configuration used as the starting point.                                  | A number (e.g., `1`, `2`)      |
 | `lang`          | The language in which the configurator is displayed.                          | e.g., `nl` (Dutch) or `en` (English) |
 | `region`        | The region for which the configurator is set, for correct price display.      | e.g., `nl`, `de`, `fr`         |
 | `prices`        | Specifies whether to display prices.                                          | No value (shows prices)        |
