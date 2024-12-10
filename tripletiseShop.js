@@ -187,5 +187,10 @@
         connectMollie(totalPrice, "Winkelwagen Aankoop");
     });
 
+    document.getElementById('cart-button').addEventListener('click', (event) => {
+        event.preventDefault(); // Voorkom de standaard linkactie
+        showSidebar();
+    });
+
     updateCart();
 })();
