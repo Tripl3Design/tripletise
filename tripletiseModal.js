@@ -1,5 +1,5 @@
 function injectModalHTML() {
-        const modalHTML = `
+    const modalHTML = `
             <div id="tripletise-modal" class="modal" style="display: none;">
                 <div class="modal-content">
                     <div class="modal-body">
@@ -52,95 +52,107 @@ function injectModalHTML() {
                 }
             </style>
         `;
-    
-        document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+}
+
+function adjustModalMargins() {
+    const modalContent = document.querySelector('.modal-content');
+    const chevronLeft = document.getElementById('chevron-left');
+    const closeBtn = document.querySelector('.close-btn');
+
+    // Adjust margins based on screen orientation
+    if (window.innerHeight > window.innerWidth) {
+        modalContent.style.margin = '0';
+        modalContent.style.width = '100%';
+        modalContent.style.height = '100%';
+        chevronLeft.style.display = 'block';
+        closeBtn.style.display = 'none';
+    } else {
+        modalContent.style.margin = '20px';
+        modalContent.style.width = 'calc(100% - 40px)';
+        modalContent.style.height = 'calc(100% - 40px)';
+        chevronLeft.style.display = 'none';
+        closeBtn.style.display = 'block';
     }
-    
-    function adjustModalMargins() {
-        const modalContent = document.querySelector('.modal-content');
-        const chevronLeft = document.getElementById('chevron-left');
-        const closeBtn = document.querySelector('.close-btn');
-    
-        // Adjust margins based on screen orientation
-        if (window.innerHeight > window.innerWidth) {
-            modalContent.style.margin = '0';
-            modalContent.style.width = '100%';
-            modalContent.style.height = '100%';
-            chevronLeft.style.display = 'block';
-            closeBtn.style.display = 'none';
-        } else {
-            modalContent.style.margin = '20px';
-            modalContent.style.width = 'calc(100% - 40px)';
-            modalContent.style.height = 'calc(100% - 40px)';
-            chevronLeft.style.display = 'none';
-            closeBtn.style.display = 'block';
+}
+
+function initializeTripleModal() {
+    window.tripletiseModal = function (srcUrl) {
+        const modal = document.getElementById("tripletise-modal");
+        const iframe = document.getElementById("iframe-src");
+        iframe.onload = () => {
+            console.log("Iframe volledig geladen!");
+        };
+
+
+        // Prevent opening the modal multiple times
+        if (modal.style.display === "block") {
+            return; // Modal is already open, no need to open again
         }
-    }
-    
-    function initializeTripleModal() {
-        window.tripletiseModal = function (srcUrl) {
-            const modal = document.getElementById("tripletise-modal");
-            const iframe = document.getElementById("iframe-src");
-    
-            // Prevent opening the modal multiple times
-            if (modal.style.display === "block") {
-                return; // Modal is already open, no need to open again
-            }
-    
-            modal.style.display = "block";
-            document.body.classList.add('modal-open');
-            adjustModalMargins();
-    
-            iframe.src = `https://${srcUrl}`;
-    
-            // Close button functionality
-            document.querySelector('.close-btn').onclick = () => closeModal();
-    
-            // Close modal when clicking outside the content
-            window.onclick = (event) => {
-                if (event.target === modal) {
-                    closeModal();
-                }
-            };
-    
-            // Chevron close button functionality
-            document.getElementById('chevron-left').onclick = () => closeModal();
-    
-            // Function to close the modal and reset body class
-            function closeModal() {
-                modal.style.display = "none";
-                document.body.classList.remove('modal-open');
+
+        modal.style.display = "block";
+        document.body.classList.add('modal-open');
+        adjustModalMargins();
+
+        iframe.style.opacity = "0";
+        iframe.style.transition = "opacity 0.3s ease-in-out";
+
+        setTimeout(() => {
+          iframe.src = `https://${srcUrl}`;
+          iframe.onload = () => {
+            iframe.style.opacity = "1";
+          };
+        }, 300);
+
+        // Close button functionality
+        document.querySelector('.close-btn').onclick = () => closeModal();
+
+        // Close modal when clicking outside the content
+        window.onclick = (event) => {
+            if (event.target === modal) {
+                closeModal();
             }
         };
-    
-        // Automatically open modal if URL parameters are present
-        const urlParams = new URLSearchParams(window.location.search);
-        const brand = urlParams.get('brand');
-        const product = urlParams.get('product');
-        const id = urlParams.get('id');
-        const fsid = urlParams.get('fsid');
-        const data = urlParams.get('data');
-    
-        if (brand && product) {
-            let modalUrl = `${brand}-${product}.web.app`;  // Base URL for the iframe
-    
-            // Prioritize fsid over data and id, then check for id or data
-            if (fsid) {
-                modalUrl += `?fsid=${fsid}`;
-            } else if (id) {
-                modalUrl += `?id=${id}`;
-            } else if (data) {
-                modalUrl += `?data=${data}`;
-            }
-    
-            // Open the modal with the constructed URL
-            tripletiseModal(modalUrl);
+
+        // Chevron close button functionality
+        document.getElementById('chevron-left').onclick = () => closeModal();
+
+        // Function to close the modal and reset body class
+        function closeModal() {
+            modal.style.display = "none";
+            document.body.classList.remove('modal-open');
         }
+    };
+
+    // Automatically open modal if URL parameters are present
+    const urlParams = new URLSearchParams(window.location.search);
+    const brand = urlParams.get('brand');
+    const product = urlParams.get('product');
+    const id = urlParams.get('id');
+    const fsid = urlParams.get('fsid');
+    const data = urlParams.get('data');
+
+    if (brand && product) {
+        let modalUrl = `${brand}-${product}.web.app`;  // Base URL for the iframe
+
+        // Prioritize fsid over data and id, then check for id or data
+        if (fsid) {
+            modalUrl += `?fsid=${fsid}`;
+        } else if (id) {
+            modalUrl += `?id=${id}`;
+        } else if (data) {
+            modalUrl += `?data=${data}`;
+        }
+
+        // Open the modal with the constructed URL
+        tripletiseModal(modalUrl);
     }
-    
-    // Initialize modal and listen for resize events
-    if (!document.getElementById("tripletise-modal")) {
-        injectModalHTML();
-        initializeTripleModal();
-        window.addEventListener('resize', adjustModalMargins);
-    }
+}
+
+// Initialize modal and listen for resize events
+if (!document.getElementById("tripletise-modal")) {
+    injectModalHTML();
+    initializeTripleModal();
+    window.addEventListener('resize', adjustModalMargins);
+}
