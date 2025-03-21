@@ -1,11 +1,11 @@
 # TripleTise CPQ Configurator installation
 
-The **TripleTise configurator** is a custom-built real-time 3D WebGL tool that allows for countless product variations based on CPQ (Configure Price Quote). Easily link the configurator to your webshop, enabling your customers to explore all the available options and proceed to purchase.
+## The **TripleTise configurator** is a custom-built real-time 3D WebGL tool that allows for countless product variations based on CPQ (Configure Price Quote). Easily link the configurator to your webshop, enabling your customers to explore all the available options and proceed to purchase.
 
-With the TripleTise configurator, customers can zoom, rotate, and view products in high quality on desktop, tablet, and mobile devices. They can experiment with all available variants, colors, and materials in a seamless experience.
+## With the TripleTise configurator, customers can zoom, rotate, and view products in high quality on desktop, tablet, and mobile devices. They can experiment with all available variants, colors, and materials in a seamless experience.
 
-**CPQ software** (Configure, Price, Quote) helps businesses sell complex products and services more easily. It automates the process of configuring products, generating accurate prices, and creating quotes, leading to a more efficient sales process and precise offers.
-By using CPQ software, you enhance the customer experience, increase quote accuracy, and save valuable time in the sales process. It's ideal for businesses in industries such as manufacturing, technology, and services where customization and complex pricing structures play a significant role.
+## **CPQ software** (Configure, Price, Quote) helps businesses sell complex products and services more easily. It automates the process of configuring products, generating accurate prices, and creating quotes, leading to a more efficient sales process and precise offers.
+## By using CPQ software, you enhance the customer experience, increase quote accuracy, and save valuable time in the sales process. It's ideal for businesses in industries such as manufacturing, technology, and services where customization and complex pricing structures play a significant role.
 
 ## Installation
 With this integration, you can easily add the **TripleTise CPQ configurator** to your website and adjust the configuration based on your preferences and region. Follow the instructions below to integrate and customize the system according to your needs.
