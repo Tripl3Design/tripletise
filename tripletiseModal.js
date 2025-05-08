@@ -102,6 +102,13 @@ function initializeTripleModal() {
           iframe.src = `https://${srcUrl}`;
           iframe.onload = () => {
             iframe.style.opacity = "1";
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const prices = urlParams.has('prices');
+            const region = urlParams.get('region');
+            const lang = urlParams.get('lang');
+    
+            iframe.contentWindow.postMessage({ prices, region, lang }, '*');
           };
         }, 300);
 
