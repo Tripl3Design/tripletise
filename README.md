@@ -48,7 +48,7 @@ Use the `tripletiseModal()` function to call the configurator. The function acce
 ```javascript
 tripletiseModal('brandname-productname.web.app?id=2&lang=en&region=nl&prices');
 ```
-Below are some example parameters. These are not always available in every configurator. For additional configuration parameters, visit [tripledesign.nl](https://tripledesign.nl).
+Below are some example parameters. These are not always available in every configurator.
 
 | Parameter       | Description                                                                   | Values                         |
 |-----------------|-------------------------------------------------------------------------------|--------------------------------|
@@ -57,9 +57,10 @@ Below are some example parameters. These are not always available in every confi
 | `region`        | The region for which the configurator is set, for correct price display.      | e.g., `nl`, `de`, `fr`         |
 | `prices`        | Specifies whether to display prices.                                          | No value (shows prices)        |
 
-**Notes**
+**Important Notes**
 - **Parameter order:** the order in which you place the parameters does not matter. As long as they are separated by an `&`, they will work correctly.
 - **Default settings:** some parameters are enabled or disabled by default for mobile devices.
+- For a comprehensive list of all available configuration parameters, visit [tripledesign.nl](https://tripledesign.nl).
   
 ### 4. Congratulations!
 You’ve successfully integrated the TripleTise CPQ configurator into your website. Your users can now enjoy a seamless configuration experience tailored to your brand and region. Feel free to further customize the parameters as needed.
